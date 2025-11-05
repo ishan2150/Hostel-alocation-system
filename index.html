@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hostel Allocation System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div>
+        <h1>Hostel Allocation System</h1>
+        <div class="muted">Apply as Student or sign in as Admin to approve requests.</div>
+      </div>
+      <div class="login-area">
+        <button id="openAdmin">Admin Login</button>
+      </div>
+    </div>
+
+    <div class="grid" style="margin-top:18px">
+      <div>
+        <div class="card">
+          <h3>Apply for Hostel</h3>
+          <div class="muted">Fill details and choose roommates. Room choices update based on needed space and availability.</div>
+
+          <label for="name">Full name</label>
+          <input id="name" placeholder="Student name" />
+
+          <label for="enroll">Enrollment number</label>
+          <input id="enroll" placeholder="e.g. 2006XYZ" />
+
+          <label for="contact">Contact details</label>
+          <input id="contact" placeholder="phone / email" />
+
+          <label for="roommates">Number of roommates (must be at least 1 — you must share)</label>
+          <select id="roommates">
+            <option value="1">1 roommate (2 people)</option>
+            <option value="2">2 roommates (3 people)</option>
+          </select>
+
+          <label>Choose room (only rooms with enough free space are shown)</label>
+          <div id="rooms" class="rooms" aria-label="Available rooms"></div>
+
+          <div style="display:flex;gap:10px;margin-top:12px">
+            <button id="applyBtn">Apply</button>
+            <button id="clearBtn" class="btn-muted">Clear</button>
+          </div>
+
+          <div id="msg" class="muted" style="margin-top:10px"></div>
+          <footer>Note: This is a client-side demo. Data is saved in your browser localStorage.</footer>
+        </div>
+      </div>
+
+      <div class="right">
+        <div id="publicInfo">
+          <h3>Available Rooms</h3>
+          <div class="muted">Rooms shown here are those with at least 1 free slot (may be filtered by roommate selection when applying).</div>
+          <div id="availList" style="margin-top:10px"></div>
+        </div>
+
+        <div id="adminPanel" class="admin-panel" style="margin-top:12px">
+          <h3>Admin Panel</h3>
+          <div class="muted">Signed in as <strong>admin</strong></div>
+          <div style="margin-top:8px">
+            <button id="logoutAdmin" class="btn-danger">Logout</button>
+          </div>
+
+          <h4 style="margin-top:12px">All Requests</h4>
+          <div class="requests-list" id="requests"></div>
+        </div>
+
+        <div id="adminLoginBox" style="margin-top:6px">
+          <h3>Admin Login</h3>
+          <label for="adminUser">Username</label>
+          <input id="adminUser" placeholder="username" />
+          <label for="adminPass">Password</label>
+          <input id="adminPass" type="password" placeholder="password" />
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button id="adminLoginBtn">Login</button>
+            <button id="hideLogin" class="btn-muted">Hide</button>
+          </div>
+          <div id="adminMsg" class="muted" style="margin-top:8px"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
